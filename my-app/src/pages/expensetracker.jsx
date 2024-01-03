@@ -16,9 +16,9 @@ function Expensetracker() {
     const {register,handleSubmit,formState:{errors}} = useForm({
         resolver: yupResolver(schema)
     })
-    const [Descirption, setDescription] = useState("");
-    const [transactionamount, settransactionamount] = useState(0);
-    const [transactionType,settransactionType] = useState("Expense")
+    const [description, setdescription] = useState("");
+    const [transactionAmount, settransactionamount] = useState(0);
+    const [transactiontype,settransactiontype] = useState("expense")
     const [user] = useAuthState(auth);
     const postref = collection(db, "transactions");
     const addtodb = async ({description,transactionAmount,transactiontype} ) => {
@@ -33,9 +33,9 @@ function Expensetracker() {
     }
     const onSubmit = (e) => {
         addtodb({
-            description: "Haircut",
-            transactionAmount: 24,
-            transactiontype:"expense"
+            description,
+            transactionAmount,
+            transactiontype,
             
         })
     }
@@ -56,12 +56,12 @@ function Expensetracker() {
                   <p>$0.00</p></div>          
           </div>
           <form onSubmit={handleSubmit(addtodb)}>
-              <input type='text' placeholder='description'  required onChange={(e)=>{setDescription(e.target.value)}}/>
+              <input type='text' placeholder='description'  required onChange={(e)=>{setdescription(e.target.value)}}/>
               
               <input type='number' placeholder='amount'required onChange={(e)=>{settransactionamount(e.target.value)}}/>
              
-              <input type='radio' value="expense" onChange={(e) => { settransactionType(e.target.value) }} checked={ transactionType==="expense"} />
-              <input type='radio' value="income" onChange={(e)=>{settransactionType(e.target.value)}} checked={transactionType==="income"} />
+              <input type='radio' value="expense" onChange={(e) => { settransactiontype(e.target.value) }} checked={transactiontype==="expense"} />
+              <input type='radio' value="income" onChange={(e)=>{settransactiontype(e.target.value)}} checked={transactiontype==="income"} />
               <label >Income</label>
               <label >Expense</label>
              <button type='submit' onClick={onSubmit}>Add transaction</button>
