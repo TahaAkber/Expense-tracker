@@ -16,8 +16,9 @@ function Expensetracker() {
     const {register,handleSubmit,formState:{errors}} = useForm({
         resolver: yupResolver(schema)
     })
-    const [descirption, setdescription] = useState("");
-    const [transactionAmount, settransactionamount] = useState("");
+    const [Descirption, setDescription] = useState("");
+    const [transactionamount, settransactionamount] = useState(0);
+    const [transactionType,settransactionType] = useState("Expense")
     const [user] = useAuthState(auth);
     const postref = collection(db, "transactions");
     const addtodb = async ({description,transactionAmount,transactiontype} ) => {
@@ -55,12 +56,12 @@ function Expensetracker() {
                   <p>$0.00</p></div>          
           </div>
           <form onSubmit={handleSubmit(addtodb)}>
-              <input type='text' placeholder='description'  required/>
+              <input type='text' placeholder='description'  required onChange={(e)=>{setDescription(e.target.value)}}/>
               
-              <input type='number' placeholder='amount'required />
+              <input type='number' placeholder='amount'required onChange={(e)=>{settransactionamount(e.target.value)}}/>
              
-              <input type='radio' value="expense"  />
-              <input type='radio' value="income" />
+              <input type='radio' value="expense" onChange={(e) => { settransactionType(e.target.value) }} checked={ transactionType==="expense"} />
+              <input type='radio' value="income" onChange={(e)=>{settransactionType(e.target.value)}} checked={transactionType==="income"} />
               <label >Income</label>
               <label >Expense</label>
              <button type='submit' onClick={onSubmit}>Add transaction</button>
