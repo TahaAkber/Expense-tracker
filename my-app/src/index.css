@@ -18,8 +18,8 @@ code {
 
 .button {
   align-items: center;
-  background-color: #f5c7c7;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
@@ -29,7 +29,7 @@ code {
   font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
     Arial, sans-serif;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   justify-content: center;
   line-height: 1.25;
   margin: 0;
