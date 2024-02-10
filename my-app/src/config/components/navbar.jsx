@@ -20,7 +20,7 @@ function Navbar() {
           <div className='signout'> {user ? (<><Link to='/expensetracker' />
           <button onClick={signout} className='button'>SignOut</button>
           </>) :
-              (<Link to='/' />)}
+            (<Link to='/' />)}
           </div>
           <div className='photo'> {user && (<div>
               <h1 >{user.displayName}'s Expense Tracker</h1>

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: antiquewhite;
 }
 
 code {
@@ -92,4 +93,14 @@ code {
 }
 .profile {
   margin-right: 35%;
+}
+.loginheading {
+  margin: 0;
+  display: block;
+  padding-top: 100px;
+  margin-top: 25px;
+}
+
+.login {
+  margin-top: 100px;
 }
